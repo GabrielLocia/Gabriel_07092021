@@ -203,20 +203,17 @@ public class Alta extends javax.swing.JFrame {
         String mar = marca.getText();
         String exis = existencia.getText();
         float preIva = Float.valueOf(precioIva.getText()); 
+        
         float precio  = (float) (preIva/1.16);
         
         String preIvas = String.valueOf(preIva);
         String precios = String.valueOf(precio);
-        System.out.println("co"+co);
-         System.out.println("nom"+nom);
-          System.out.println("mar"+mar);
-           System.out.println("pre"+preIva);
-            System.out.println("pre"+precio);
+
         
         try{
                 Connection c = conexion.conexion();
                 
-                Statement stmt = c.createStatement();   //--"insert into producto values("+id+",'"+nom+"',"+pre+",'"+des+"',"+can+","+c+",'"+img+"');"
+                Statement stmt = c.createStatement();   //--
                 int i = stmt.executeUpdate("insert into productos values("+co+",'"+nom+"','"+mar+"','"+exis+"','"+preIvas+"','"+precios+"');");
                 if (i>0)
                     JOptionPane.showMessageDialog(null, "Producto registrado....");
